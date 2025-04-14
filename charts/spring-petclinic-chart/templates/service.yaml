@@ -1,5 +1,5 @@
 # /charts/spring-petclinic-service/template/service.yaml
-apiVersion: v1
+apiVersion: v2
 kind: Service
 metadata:
   name: {{ .Values.service.name | default (include "petclinic.fullname" .) }}
