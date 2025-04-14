@@ -2,7 +2,7 @@
 replicas: 2
 
 image:
-  repository: 22127210/spring-petclinic-config-server
+  repository: 22127210/spring-petclinic-customers-service
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -20,7 +20,10 @@ resources:
     memory: "256Mi"
 
 env: []
-
+# Example override:
+# env:
+#   - name: SPRING_PROFILES_ACTIVE
+#     value: dev
 
 livenessProbe:
   path: /actuator/health
