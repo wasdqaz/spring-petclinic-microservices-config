@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/wasdqaz/spring-petclinic-microservices-config
+    repoURL: https://github.com/wasdqaz/spring-petclinic-microservices-config.git
     path: apps/dev
     targetRevision: HEAD
   destination:
