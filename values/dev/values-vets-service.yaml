@@ -1,6 +1,6 @@
 # dev/values-vets-service.yaml
 image:
-  repository: 22127210/spring-petclinic/vets-service
+  repository: 22127210/spring-petclinic-vets-service
   tag: latest
   pullPolicy: IfNotPresent
 

@@ -1,6 +1,6 @@
 # dev/values-discovery-server.yaml
 image:
-  repository: 22127210/spring-petclinic/discovery-server
+  repository: 22127210/spring-petclinic-discovery-server
   tag: latest
   pullPolicy: IfNotPresent
 

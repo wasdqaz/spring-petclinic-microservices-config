@@ -18,7 +18,7 @@ spec:
         - ../../values/dev/values-discovery-server.yaml
       releaseName: discovery-server
   destination:
-    server: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc 
     namespace: petclinic-dev
   syncPolicy:
     automated:

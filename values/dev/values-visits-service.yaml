@@ -1,6 +1,6 @@
 # dev/values-visits-service.yaml
 image:
-  repository: 22127210/spring-petclinic/visits-service
+  repository: 22127210/spring-petclinic-visits-service
   tag: latest
   pullPolicy: IfNotPresent
 

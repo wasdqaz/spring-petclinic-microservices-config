@@ -1,6 +1,6 @@
 # dev/values-genai-service.yaml
 image:
-  repository: 22127210/spring-petclinic/genai-service
+  repository: 22127210/spring-petclinic-genai-service
   tag: latest
   pullPolicy: IfNotPresent
 

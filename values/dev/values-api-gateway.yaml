@@ -1,5 +1,5 @@
 image:
-  repository: 22127210/spring-petclinic/api-gateway
+  repository: 22127210/spring-petclinic-api-gateway
   tag: latest
   pullPolicy: IfNotPresent
 

@@ -1,6 +1,6 @@
 # dev/values-customers-service.yaml
 image:
-  repository: 22127210/spring-petclinic/customers-service
+  repository: 22127210/spring-petclinic-customers-service
   tag: latest
   pullPolicy: IfNotPresent
 

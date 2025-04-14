@@ -1,5 +1,5 @@
 image:
-  repository: 22127210/spring-petclinic/admin-server
+  repository: 22127210/spring-petclinic-admin-server
   tag: latest
   pullPolicy: IfNotPresent
 
