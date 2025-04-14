@@ -1,13 +1,35 @@
-replicaCount: 1
-
 image:
-  repository: ghcr.io/spring-petclinic/admin-server
+  repository: 22127210/spring-petclinic/admin-server
   tag: latest
   pullPolicy: IfNotPresent
+
+replicas: 1
 
 service:
   type: ClusterIP
   port: 9090
+  name: admin-server
 
 env:
-  SPRING_PROFILES_ACTIVE: dev
+  - name: SPRING_PROFILES_ACTIVE
+    value: dev
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+
+readinessProbe:
+  path: /actuator/health
+  port: 9090
+  initialDelaySeconds: 20
+  periodSeconds: 5
+
+livenessProbe:
+  path: /actuator/health
+  port: 9090
+  initialDelaySeconds: 40
+  periodSeconds: 10
