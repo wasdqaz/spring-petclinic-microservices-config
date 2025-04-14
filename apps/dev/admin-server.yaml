@@ -15,7 +15,7 @@ spec:
     targetRevision: main
     helm:
       valueFiles:
-        - ../../values/dev/values-admin-server.yaml
+        - values/dev/values-admin-server.yaml
       releaseName: admin-server
   destination:
     server: https://kubernetes.default.svc

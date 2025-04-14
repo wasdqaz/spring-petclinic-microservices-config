@@ -15,7 +15,7 @@ spec:
     targetRevision: main
     helm:
       valueFiles:
-        - ../../values/dev/values-discovery-server.yaml
+        - values/dev/values-discovery-server.yaml
       releaseName: discovery-server
   destination:
     server: https://kubernetes.default.svc 

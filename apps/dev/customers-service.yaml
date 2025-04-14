@@ -15,7 +15,7 @@ spec:
     targetRevision: main
     helm:
       valueFiles:
-        - ../../values/dev/values-api-gateway.yaml
+        - values/dev/values-api-gateway.yaml
       releaseName: api-gateway
   destination:
     server: https://kubernetes.default.svc
