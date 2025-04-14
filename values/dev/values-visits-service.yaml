@@ -1,0 +1,36 @@
+# dev/values-visits-service.yaml
+image:
+  repository: 22127210/spring-petclinic-visits-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicas: 1
+
+service:
+  port: 8082
+  type: ClusterIP
+  name: visits-service
+
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: dev
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+
+readinessProbe:
+  path: /actuator/health
+  port: 8082
+  initialDelaySeconds: 20
+  periodSeconds: 5
+
+livenessProbe:
+  path: /actuator/health
+  port: 8082
+  initialDelaySeconds: 40
+  periodSeconds: 10
