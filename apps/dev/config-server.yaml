@@ -16,7 +16,7 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - values/dev/values-config-server.yaml
+        - ../../values/dev/values-config-server.yaml
       releaseName: config-server
   destination:
     server: https://kubernetes.default.svc

@@ -15,7 +15,7 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - values/dev/values-visits-service.yaml
+        - ../../values/dev/values-visits-service.yaml
       releaseName: visits-service
   destination:
     server: https://kubernetes.default.svc
