@@ -1,13 +1,13 @@
-# apps/dev/visits-service.yaml
+# apps/staging/api-gateway.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: visits-service-dev
+  name: api-gateway-staging
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    environment: dev
+    environment: staging
 spec:
   project: default
   source:
@@ -16,11 +16,11 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - ../../values/dev/values-visits-service.yaml
-      releaseName: visits-service
+        - ../../values/staging/values-api-gateway.yaml
+      releaseName: api-gateway
   destination:
     server: https://kubernetes.default.svc
-    namespace: petclinic-dev
+    namespace: petclinic-staging
   syncPolicy:
     automated:
       prune: true

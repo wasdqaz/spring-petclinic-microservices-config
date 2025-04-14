@@ -1,0 +1,21 @@
+# apps/staging/ingress-staging.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-staging
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/HZeroxium/spring-petclinic-microservices-config
+    path: ingress/staging
+    targetRevision: HEAD
+    # Yaml files in `ingress/` might contain multiple or single .yaml
+    # If you only want to apply ingress-dev.yaml -> use "directory" filter or "kustomize" approach
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: petclinic-staging
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

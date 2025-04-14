@@ -1,5 +1,5 @@
 # /charts/spring-petclinic-service/chart/templates/deployment.yaml 
-apiVersion: apps/v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "petclinic.fullname" . }}

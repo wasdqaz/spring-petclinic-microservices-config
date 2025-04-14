@@ -1,7 +1,9 @@
 # dev/values-customers-service.yaml
+# This file contains the values for the customers service in dev environment.
+# It is used to override the default values in the chart.
 image:
   repository: 22127210/spring-petclinic-customers-service
-  tag: latest
+  tag: "248e4f1"
   pullPolicy: IfNotPresent
 
 replicas: 1
@@ -13,7 +15,11 @@ service:
 
 env:
   - name: SPRING_PROFILES_ACTIVE
-    value: dev
+    value: docker
+  - name: CONFIG_SERVER_URL
+    value: http://config-server:8888
+  - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+    value: http://discovery-server:8761/eureka
 
 resources:
   limits:
@@ -26,11 +32,11 @@ resources:
 readinessProbe:
   path: /actuator/health
   port: 8081
-  initialDelaySeconds: 20
-  periodSeconds: 5
+  initialDelaySeconds: 30
+  periodSeconds: 10
 
 livenessProbe:
   path: /actuator/health
   port: 8081
-  initialDelaySeconds: 40
-  periodSeconds: 10
+  initialDelaySeconds: 60
+  periodSeconds: 15

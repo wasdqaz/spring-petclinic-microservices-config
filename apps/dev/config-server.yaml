@@ -11,8 +11,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/wasdqaz/spring-petclinic-microservices-config.git
-    path: charts/spring-petclinic-chart
+    repoURL: https://github.com/hzeroxium/spring-petclinic-microservices-config
+    path: charts/spring-petclinic-service
     targetRevision: HEAD
     helm:
       valueFiles:

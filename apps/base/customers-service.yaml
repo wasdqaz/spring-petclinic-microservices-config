@@ -1,13 +1,9 @@
-# apps/dev/visits-service.yaml
+# apps/base/customers-service.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: visits-service-dev
+  name: customers-service
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-  labels:
-    environment: dev
 spec:
   project: default
   source:
@@ -16,17 +12,13 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - ../../values/dev/values-visits-service.yaml
-      releaseName: visits-service
+        - ../../dev/values-customers-service.yaml  # <-- override it with dev values file, you can also use staging or prod values file
   destination:
     server: https://kubernetes.default.svc
-    namespace: petclinic-dev
+    namespace: petclinic-dev                      # <-- env namespace
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-      allowEmpty: false
     syncOptions:
       - CreateNamespace=true
-      - PruneLast=true
-      - ApplyOutOfSyncOnly=true

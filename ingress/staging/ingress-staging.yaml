@@ -1,0 +1,20 @@
+# ingress/staging/ingress-staging.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: petclinic-ingress-staging
+  namespace: petclinic-staging
+  labels:
+    name: petclinic-ingress-staging
+spec:
+  rules:
+    - host: petclinic-staging.hzeroxium.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: api-gateway
+                port:
+                  number: 8080

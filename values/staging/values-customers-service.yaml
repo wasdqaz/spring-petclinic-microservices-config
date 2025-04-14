@@ -1,15 +1,17 @@
-# staging/values-admin-server.yaml
+# staging/values-customers-service.yaml
+# This file contains the values for the customers service in dev environment.
+# It is used to override the default values in the chart.
 image:
-  repository: 22127210/spring-petclinic-admin-server
+  repository: hzeroxium/spring-petclinic-customers-service
   tag: "248e4f1"
   pullPolicy: IfNotPresent
 
 replicas: 1
 
 service:
-  port: 9090
+  port: 8081
   type: ClusterIP
-  name: admin-server
+  name: customers-service
 
 env:
   - name: SPRING_PROFILES_ACTIVE
@@ -29,12 +31,12 @@ resources:
 
 readinessProbe:
   path: /actuator/health
-  port: 9090
+  port: 8081
   initialDelaySeconds: 30
   periodSeconds: 10
 
 livenessProbe:
   path: /actuator/health
-  port: 9090
+  port: 8081
   initialDelaySeconds: 60
   periodSeconds: 15

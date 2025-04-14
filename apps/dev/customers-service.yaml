@@ -1,7 +1,8 @@
+# apps/dev/customers-service.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: api-gateway-dev
+  name: customers-service-dev
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,13 +11,13 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/wasdqaz/spring-petclinic-microservices-config.git
-    path: charts/spring-petclinic-chart
+    repoURL: https://github.com/hzeroxium/spring-petclinic-microservices-config
+    path: charts/spring-petclinic-service
     targetRevision: HEAD
     helm:
       valueFiles:
-        - ../../values/dev/values-api-gateway.yaml
-      releaseName: api-gateway
+        - ../../values/dev/values-customers-service.yaml
+      releaseName: customers-service
   destination:
     server: https://kubernetes.default.svc
     namespace: petclinic-dev

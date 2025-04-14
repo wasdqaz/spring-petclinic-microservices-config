@@ -1,15 +1,15 @@
-# staging/values-admin-server.yaml
+# staging/values-vets-service.yaml
 image:
-  repository: 22127210/spring-petclinic-admin-server
+  repository: hzeroxium/spring-petclinic-vets-service
   tag: "248e4f1"
   pullPolicy: IfNotPresent
 
 replicas: 1
 
 service:
-  port: 9090
+  port: 8083
   type: ClusterIP
-  name: admin-server
+  name: vets-service
 
 env:
   - name: SPRING_PROFILES_ACTIVE
@@ -29,12 +29,12 @@ resources:
 
 readinessProbe:
   path: /actuator/health
-  port: 9090
+  port: 8083
   initialDelaySeconds: 30
   periodSeconds: 10
 
 livenessProbe:
   path: /actuator/health
-  port: 9090
+  port: 8083
   initialDelaySeconds: 60
   periodSeconds: 15

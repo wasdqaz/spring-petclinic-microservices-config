@@ -1,8 +1,7 @@
 # dev/values-genai-service.yaml
 image:
   repository: 22127210/spring-petclinic-genai-service
-  tag: latest
-  pullPolicy: IfNotPresent
+  tag: "248e4f1"
 
 replicas: 1
 
@@ -13,24 +12,34 @@ service:
 
 env:
   - name: SPRING_PROFILES_ACTIVE
-    value: dev
+    value: docker
+  - name: CONFIG_SERVER_URL
+    value: http://config-server:8888
+  - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+    value: http://discovery-server:8761/eureka
+  # - name: OPENAI_API_KEY
+  #   value: "<TO_BE_FILLED_BY_SECRETS_MANAGER>"
+  # - name: AZURE_OPENAI_KEY
+  #   value: "<TO_BE_FILLED_BY_SECRETS_MANAGER>"
+  # - name: AZURE_OPENAI_ENDPOINT
+  #   value: "<TO_BE_FILLED_BY_SECRETS_MANAGER>"
 
 resources:
   limits:
+    cpu: "1"
+    memory: "1024Mi"
+  requests:
     cpu: "500m"
     memory: "512Mi"
-  requests:
-    cpu: "200m"
-    memory: "256Mi"
 
 readinessProbe:
   path: /actuator/health
   port: 8084
-  initialDelaySeconds: 20
-  periodSeconds: 5
+  initialDelaySeconds: 30
+  periodSeconds: 10
 
 livenessProbe:
   path: /actuator/health
   port: 8084
-  initialDelaySeconds: 40
-  periodSeconds: 10
+  initialDelaySeconds: 60
+  periodSeconds: 15

@@ -1,0 +1,20 @@
+# apps/app-of-apps-staging.yaml
+# This file defines the ArgoCD ApplicationSet for deploying the Spring Petclinic microservices.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: petclinic-apps-staging
+  namespace: argocd # This is the namespace where ArgoCD is installed, make sure to change it if you have a different namespace
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/HZeroxium/spring-petclinic-microservices-config
+    path: apps/staging # If deploy to dev environment, or if you want to deploy to other environment, change this path to apps/staging or apps/prod
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: petclinic-staging
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

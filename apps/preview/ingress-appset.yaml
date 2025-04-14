@@ -1,0 +1,29 @@
+# apps/preview/ingress-appset.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: preview-ingress
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: 'https://github.com/HZeroxium/spring-petclinic-microservices-config.git'
+        revision: HEAD
+        directories:
+          - path: 'apps/preview/preview-*/ingress.yaml'
+  template:
+    metadata:
+      name: '{{path.basename}}-ingress'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/HZeroxium/spring-petclinic-microservices-config'
+        targetRevision: HEAD
+        path: 'ingress/preview/{{path.basename}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'preview-{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

@@ -1,6 +1,6 @@
-# dev/values-config-server.yaml
+# staging/values-config-server.yaml
 image:
-  repository: 22127210/spring-petclinic-config-server
+  repository: hzeroxium/spring-petclinic-config-server
   tag: latest
   pullPolicy: IfNotPresent
 

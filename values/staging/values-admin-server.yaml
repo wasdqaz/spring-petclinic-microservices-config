@@ -1,6 +1,6 @@
-# staging/values-admin-server.yaml
+# dev/values-admin-server.yaml
 image:
-  repository: 22127210/spring-petclinic-admin-server
+  repository: hzeroxium/spring-petclinic-admin-server
   tag: "248e4f1"
   pullPolicy: IfNotPresent
 

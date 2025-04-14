@@ -1,7 +1,7 @@
 # dev/values-discovery-server.yaml
 image:
   repository: 22127210/spring-petclinic-discovery-server
-  tag: latest
+  tag: "248e4f1"
   pullPolicy: IfNotPresent
 
 replicas: 1
@@ -13,7 +13,9 @@ service:
 
 env:
   - name: SPRING_PROFILES_ACTIVE
-    value: dev
+    value: docker
+  - name: CONFIG_SERVER_URL
+    value: http://config-server:8888
 
 resources:
   limits:
@@ -26,11 +28,11 @@ resources:
 readinessProbe:
   path: /actuator/health
   port: 8761
-  initialDelaySeconds: 20
-  periodSeconds: 5
+  initialDelaySeconds: 30
+  periodSeconds: 10
 
 livenessProbe:
   path: /actuator/health
   port: 8761
-  initialDelaySeconds: 40
-  periodSeconds: 10
+  initialDelaySeconds: 60
+  periodSeconds: 15
