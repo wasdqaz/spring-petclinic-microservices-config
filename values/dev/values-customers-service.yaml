@@ -20,7 +20,9 @@ env:
     value: http://discovery-server:8761/eureka
   - name: EUREKA_INSTANCE_HOSTNAME
     value: customers-service
-
+  - name: SPRING_ZIPKIN_BASEURL
+    value: http://zipkin:9411
+    
 resources:
   limits:
     cpu: "500m"
