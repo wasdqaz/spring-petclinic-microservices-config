@@ -13,7 +13,7 @@ service:
 
 env:
   - name: SPRING_PROFILES_ACTIVE
-    value: dev
+    value: docker
   - name: CONFIG_SERVER_URL
     value: http://config-server:8888
 resources:
