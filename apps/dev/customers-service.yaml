@@ -15,8 +15,8 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - ../../values/dev/values-api-gateway.yaml
-      releaseName: api-gateway
+        - ../../values/dev/values-customers-service.yaml
+      releaseName: customers-service
   destination:
     server: https://kubernetes.default.svc
     namespace: petclinic-dev
