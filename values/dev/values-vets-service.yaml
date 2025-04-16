@@ -21,7 +21,7 @@ env:
   - name: EUREKA_INSTANCE_HOSTNAME
     value: vets-service
 
-    
+
 resources:
   limits:
     cpu: "500m"
@@ -33,11 +33,11 @@ resources:
 readinessProbe:
   path: /actuator/health
   port: 8083
-  initialDelaySeconds: 20
-  periodSeconds: 5
+  initialDelaySeconds: 30
+  periodSeconds: 10
 
 livenessProbe:
   path: /actuator/health
   port: 8083
-  initialDelaySeconds: 40
-  periodSeconds: 10
+  initialDelaySeconds: 60
+  periodSeconds: 15
