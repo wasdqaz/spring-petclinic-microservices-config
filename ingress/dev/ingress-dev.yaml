@@ -7,6 +7,7 @@ metadata:
   labels:
     name: petclinic-ingress-dev
 spec:
+  ingressClassName: nginx  
   rules:
     - host: petclinic-dev.22127210.com
       http:
