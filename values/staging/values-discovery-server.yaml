@@ -1,0 +1,37 @@
+# dev/values-discovery-server.yaml
+image:
+  repository: 22127210/spring-petclinic-discovery-server
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicas: 1
+
+service:
+  port: 8761
+  type: ClusterIP
+  name: discovery-server
+
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: docker
+  - name: CONFIG_SERVER_URL
+    value: http://config-server:8888
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+
+readinessProbe:
+  path: /actuator/health
+  port: 8761
+  initialDelaySeconds: 20
+  periodSeconds: 5
+
+livenessProbe:
+  path: /actuator/health
+  port: 8761
+  initialDelaySeconds: 40
+  periodSeconds: 10

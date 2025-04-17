@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: genai-service-staging
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    environment: staging
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/wasdqaz/spring-petclinic-microservices-config.git
+    path: charts/spring-petclinic-chart
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - ../../values/staging/values-genai-service.yaml
+      releaseName: genai-service
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: petclinic-staging
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
+      - ApplyOutOfSyncOnly=true

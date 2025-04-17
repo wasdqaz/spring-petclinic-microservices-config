@@ -1,0 +1,36 @@
+# dev/values-config-server.yaml
+image:
+  repository: 22127210/spring-petclinic-config-server
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicas: 1
+
+service:
+  port: 8888
+  type: ClusterIP
+  name: config-server
+
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: docker
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+
+readinessProbe:
+  path: /actuator/health
+  port: 8888
+  initialDelaySeconds: 20
+  periodSeconds: 5
+
+livenessProbe:
+  path: /actuator/health
+  port: 8888
+  initialDelaySeconds: 40
+  periodSeconds: 10
