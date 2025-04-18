@@ -1,6 +1,6 @@
 image:
   repository: 22127210/spring-petclinic-api-gateway
-  tag: "3d56dd8"
+  tag: "c4c461a"
   pullPolicy: IfNotPresent
 
 replicas: 1
