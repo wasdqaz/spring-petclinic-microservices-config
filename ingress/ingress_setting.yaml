@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: 'https://github.com/22127210/spring-petclinic-microservices-config.git'
+        repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config.git'
         revision: HEAD
         directories:
           - path: 'ingress/checkout-dev/checkout-dev-*'  # Changed from checkout_dev
@@ -16,7 +16,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/22127210/spring-petclinic-microservices-config'
+        repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config'
         targetRevision: HEAD
         path: 'ingress/checkout-dev/{{path.basename}}'  # Changed from checkout_dev
         directory:

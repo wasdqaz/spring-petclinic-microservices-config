@@ -29,7 +29,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config'
+        repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config.git'
         targetRevision: HEAD
         path: 'charts/spring-petclinic-chart'
         helm:
