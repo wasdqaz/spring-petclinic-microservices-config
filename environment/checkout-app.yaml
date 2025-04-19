@@ -1,8 +1,8 @@
-# apps/checkout_dev/appset.yaml
+# environment/checkout_dev/environmentet.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: checkout-dev-apps
+  name: checkout-dev-environment
   namespace: argocd
 spec:
   generators:
@@ -12,7 +12,7 @@ spec:
               repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config.git'
               revision: HEAD
               directories:
-                - path: 'apps/checkout_dev/checkout_dev-*'
+                - path: 'environment/checkout_dev/checkout_dev-*'
           - list:
               elements:
                 - name: vets-service

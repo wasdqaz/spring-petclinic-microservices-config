@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: petclinic-staging
+  name: petclinic-dev
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/wasdqaz/spring-petclinic-microservices-config.git
-    path: apps/staging
+    path: environment/dev
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: petclinic-staging
+    namespace: petclinic-dev
   syncPolicy:
     automated:
       prune: true
