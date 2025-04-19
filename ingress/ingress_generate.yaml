@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: checkout_dev-apps
+  name: checkout-dev-apps
   namespace: argocd
 spec:
   generators:
