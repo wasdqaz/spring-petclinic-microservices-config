@@ -7,7 +7,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    environment: checkout-dev
+    environment: checkout
 spec:
   project: default
   source:
@@ -16,7 +16,7 @@ spec:
     targetRevision: HEAD
     helm:
       valueFiles:
-        - ../../values/dev/values-admin-server.yaml
+        - ../../values/checkout-dev/checkout-dev-fixcicd2/values-admin-server.yaml
       releaseName: checkout-dev-fixCICD2
   destination:
     server: https://kubernetes.default.svc
