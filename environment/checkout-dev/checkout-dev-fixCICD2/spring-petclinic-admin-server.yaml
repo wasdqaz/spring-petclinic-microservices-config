@@ -17,7 +17,7 @@ spec:
     helm:
       valueFiles:
         - ../../values/dev/values-admin-server.yaml
-      releaseName: {svc}-fixCICD2
+      releaseName: checkout-dev-fixCICD2
   destination:
     server: https://kubernetes.default.svc
     namespace: checkout-dev-fixCICD2
