@@ -1,4 +1,4 @@
-# apps/checkout_dev/appset.yaml
+# apps/checkout-dev/appset.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -12,7 +12,7 @@ spec:
               repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config.git'
               revision: HEAD
               directories:
-                - path: 'environment/checkout_dev/checkout_dev-*'
+                - path: 'environment/checkout-dev/checkout-dev-*'
           - list:
               elements:
                 - name: vets-service
@@ -34,7 +34,7 @@ spec:
         path: 'charts/spring-petclinic-chart'
         helm:
           valueFiles:
-            - ../../values/checkout_dev/{{path.basename}}/values-{{name}}.yaml
+            - ../../values/checkout-dev/{{path.basename}}/values-{{name}}.yaml
           releaseName: '{{name}}'
       destination:
         server: https://kubernetes.default.svc

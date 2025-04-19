@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: checkout-dev-ingress  # Changed from checkout_dev-ingress
+  name: checkout-dev-ingress  # Changed from checkout-dev-ingress
   namespace: argocd
 spec:
   generators:
@@ -9,7 +9,7 @@ spec:
         repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config.git'
         revision: HEAD
         directories:
-          - path: 'ingress/checkout-dev/checkout-dev-*'  # Changed from checkout_dev
+          - path: 'ingress/checkout-dev/checkout-dev-*'  # Changed from checkout-dev
   template:
     metadata:
       name: 'ingress-{{path.basename}}'
@@ -18,12 +18,12 @@ spec:
       source:
         repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config'
         targetRevision: HEAD
-        path: 'ingress/checkout-dev/{{path.basename}}'  # Changed from checkout_dev
+        path: 'ingress/checkout-dev/{{path.basename}}'  # Changed from checkout-dev
         directory:
           recurse: true                        
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'checkout-dev-{{path.basename}}'  # Changed from checkout_dev
+        namespace: 'checkout-dev-{{path.basename}}'  # Changed from checkout-dev
       syncPolicy:
         automated:
           prune: true
