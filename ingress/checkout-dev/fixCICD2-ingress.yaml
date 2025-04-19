@@ -1,0 +1,18 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fixCICD2-ingress
+  namespace: checkout-dev-fixCICD2
+spec:
+  rules:
+    - host: fixCICD2.petclinic.local
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: spring-petclinic-api-gateway
+                port:
+                  number: 8080
