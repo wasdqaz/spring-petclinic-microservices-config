@@ -1,8 +1,8 @@
-# apps/preview/appset.yaml
+# apps/checkout_dev/appset.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: preview-apps
+  name: checkout_dev-apps
   namespace: argocd
 spec:
   generators:
@@ -12,7 +12,7 @@ spec:
               repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config.git'
               revision: HEAD
               directories:
-                - path: 'apps/preview/preview-*'
+                - path: 'apps/checkout_dev/checkout_dev-*'
           - list:
               elements:
                 - name: vets-service
@@ -34,11 +34,11 @@ spec:
         path: 'charts/spring-petclinic-chart'
         helm:
           valueFiles:
-            - ../../values/preview/{{path.basename}}/values-{{name}}.yaml
+            - ../../values/checkout_dev/{{path.basename}}/values-{{name}}.yaml
           releaseName: '{{name}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'preview-{{path.basename}}'
+        namespace: 'checkout_dev-{{path.basename}}'
       syncPolicy:
         automated:
           prune: true
