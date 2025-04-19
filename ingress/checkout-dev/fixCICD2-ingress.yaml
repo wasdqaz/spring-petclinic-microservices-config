@@ -13,6 +13,6 @@ spec:
             path: "/"
             backend:
               service:
-                name: spring-petclinic-api-gateway
+                name: spring-petclinic-admin-server
                 port:
-                  number: 8080
+                  number: 9090
