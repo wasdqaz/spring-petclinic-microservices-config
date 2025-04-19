@@ -1,7 +1,7 @@
 
 image:
   repository: 22127210/spring-petclinic-admin-server
-  tag: "1f71654"
+  tag: "fe7866e"
   pullPolicy: IfNotPresent
 
 replicas: 1
