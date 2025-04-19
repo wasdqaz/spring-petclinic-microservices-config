@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: fixCICD2-ingress
-  namespace: checkout_dev-fixCICD2
+  namespace: checkout-dev-fixCICD2
 spec:
   rules:
     - host: fixCICD2.petclinic.local
