@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/wasdqaz/spring-petclinic-microservices-config.git
-    path: apps/dev
+    path: environment/dev
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc

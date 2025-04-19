@@ -12,7 +12,7 @@ spec:
               repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config.git'
               revision: HEAD
               directories:
-                - path: 'apps/checkout_dev/checkout_dev-*'
+                - path: 'environment/checkout_dev/checkout_dev-*'
           - list:
               elements:
                 - name: vets-service
