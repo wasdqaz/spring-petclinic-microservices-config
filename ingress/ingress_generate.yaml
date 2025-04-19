@@ -38,7 +38,7 @@ spec:
           releaseName: '{{name}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'checkout_dev-{{path.basename}}'
+        namespace: 'checkout-dev-{{path.basename}}'
       syncPolicy:
         automated:
           prune: true
