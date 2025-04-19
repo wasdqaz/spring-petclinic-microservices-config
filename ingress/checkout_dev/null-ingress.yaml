@@ -1,0 +1,18 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: null-ingress
+  namespace: checkout_dev-null
+spec:
+  rules:
+    - host: null.petclinic.local
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: null
+                port:
+                  number: 8080
