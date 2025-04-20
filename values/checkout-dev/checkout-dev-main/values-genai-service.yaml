@@ -9,7 +9,7 @@ replicas: 1
 service:
   port: 8084
   type: ClusterIP
-  name: spring-petclinic-genai-service
+  name: genai-service
 
 env:
   - name: SPRING_PROFILES_ACTIVE

@@ -9,7 +9,7 @@ replicas: 1
 service:
   port: 8080
   type: ClusterIP
-  name: spring-petclinic-api-gateway
+  name: api-gateway
 
 env:
   - name: SPRING_PROFILES_ACTIVE

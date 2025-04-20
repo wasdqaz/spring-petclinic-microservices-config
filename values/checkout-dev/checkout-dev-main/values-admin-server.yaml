@@ -9,7 +9,7 @@ replicas: 1
 service:
   port: 9090
   type: ClusterIP
-  name: spring-petclinic-admin-server
+  name: admin-server
 
 env:
   - name: SPRING_PROFILES_ACTIVE

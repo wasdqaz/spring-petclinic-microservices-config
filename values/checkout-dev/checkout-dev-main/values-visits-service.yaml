@@ -9,7 +9,7 @@ replicas: 1
 service:
   port: 8082
   type: ClusterIP
-  name: spring-petclinic-visits-service
+  name: visits-service
 
 env:
   - name: SPRING_PROFILES_ACTIVE

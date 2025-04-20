@@ -9,7 +9,7 @@ replicas: 1
 service:
   port: 8761
   type: ClusterIP
-  name: spring-petclinic-discovery-server
+  name: discovery-server
 
 env:
   - name: SPRING_PROFILES_ACTIVE
