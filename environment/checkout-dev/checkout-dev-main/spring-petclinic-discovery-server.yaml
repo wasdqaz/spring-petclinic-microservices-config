@@ -17,7 +17,7 @@ spec:
     helm:
       valueFiles:
         - ../../values/checkout-dev/main/values-spring-petclinic-discovery-server.yaml
-      releaseName: spring-petclinic-discovery-server-main
+      releaseName: discovery-server
   destination:
     server: https://kubernetes.default.svc
     namespace: checkout-dev-main

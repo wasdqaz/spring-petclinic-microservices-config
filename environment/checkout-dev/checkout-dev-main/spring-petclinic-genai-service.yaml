@@ -17,7 +17,7 @@ spec:
     helm:
       valueFiles:
         - ../../values/checkout-dev/main/values-spring-petclinic-genai-service.yaml
-      releaseName: spring-petclinic-genai-service-main
+      releaseName: genai-service
   destination:
     server: https://kubernetes.default.svc
     namespace: checkout-dev-main

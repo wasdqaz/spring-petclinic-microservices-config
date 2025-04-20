@@ -17,7 +17,7 @@ spec:
     helm:
       valueFiles:
         - ../../values/checkout-dev/main/values-spring-petclinic-vets-service.yaml
-      releaseName: spring-petclinic-vets-service-main
+      releaseName: vets-service
   destination:
     server: https://kubernetes.default.svc
     namespace: checkout-dev-main

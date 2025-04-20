@@ -17,7 +17,7 @@ spec:
     helm:
       valueFiles:
         - ../../values/checkout-dev/main/values-spring-petclinic-config-server.yaml
-      releaseName: spring-petclinic-config-server-main
+      releaseName: config-server
   destination:
     server: https://kubernetes.default.svc
     namespace: checkout-dev-main
