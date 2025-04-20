@@ -13,6 +13,6 @@ spec:
             path: "/"
             backend:
               service:
-                name: null
+                name: spring-petclinic-visits-service
                 port:
-                  number: null
+                  number: 8082
