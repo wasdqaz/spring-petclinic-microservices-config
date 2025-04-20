@@ -1,0 +1,42 @@
+
+image:
+  repository: 22127210/spring-petclinic-api-gateway
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+replicas: 1
+
+service:
+  port: 8080
+  type: ClusterIP
+  name: api-gateway
+
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: docker
+  - name: CONFIG_SERVER_URL
+    value: http://config-server:8888
+  - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+    value: http://discovery-server:8761/eureka
+  - name: EUREKA_INSTANCE_HOSTNAME
+    value: api-gateway 
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+
+readinessProbe:
+  path: /actuator/health
+  port: 8080
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+livenessProbe:
+  path: /actuator/health
+  port: 8080
+  initialDelaySeconds: 60
+  periodSeconds: 15
