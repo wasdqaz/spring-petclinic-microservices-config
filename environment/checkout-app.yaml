@@ -1,4 +1,3 @@
-# apps/checkout-dev/appset.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -8,11 +7,13 @@ spec:
   generators:
     - matrix:
         generators:
+          # Git generator scanning all subdirectories under environment/checkout-dev/
           - git:
               repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config.git'
               revision: HEAD
               directories:
-                - path: 'environment/checkout-dev/checkout-dev-(?P<envname>.*)'
+                - path: 'environment/checkout-dev/*'
+          # List of microservice names
           - list:
               elements:
                 - name: vets-service
@@ -25,6 +26,7 @@ spec:
                 - name: genai-service
   template:
     metadata:
+      # Application name composed of directory basename and service name
       name: '{{path.basename}}-{{name}}'
     spec:
       project: default
@@ -33,13 +35,14 @@ spec:
         targetRevision: HEAD
         path: 'charts/spring-petclinic-chart'
         helm:
-          valueFiles:
-            - ../../values/checkout-dev/{{envname}}/values-{{name}}.yaml
-
           releaseName: '{{name}}'
+          valueFiles:
+            # Values file path relative to the repo root, matching your directory structure
+            - ../../values/checkout-dev/{{path.basename}}/values-{{name}}.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'checkout-dev-{{envname}}'
+        # Namespace named after the directory basename to isolate environments
+        namespace: 'checkout-dev-{{path.basename}}'
       syncPolicy:
         automated:
           prune: true
