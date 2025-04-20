@@ -12,7 +12,7 @@ spec:
               repoURL: 'https://github.com/wasdqaz/spring-petclinic-microservices-config.git'
               revision: HEAD
               directories:
-                - path: 'environment/checkout-dev/checkout-dev-*'
+                - path: 'environment/checkout-dev/checkout-dev-(?P<envname>.*)'
           - list:
               elements:
                 - name: vets-service
@@ -34,11 +34,12 @@ spec:
         path: 'charts/spring-petclinic-chart'
         helm:
           valueFiles:
-            - ../../values/checkout-dev/{{path.basename}}/values-{{name}}.yaml
+            - ../../values/checkout-dev/{{envname}}/values-{{name}}.yaml
+
           releaseName: '{{name}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: 'checkout-dev-{{path.basename}}'
+        namespace: 'checkout-dev-{{envname}}'
       syncPolicy:
         automated:
           prune: true
