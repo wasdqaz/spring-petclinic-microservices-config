@@ -1,7 +1,7 @@
 # staging/values-admin-server.yaml
 image:
   repository: 22127210/spring-petclinic-admin-server
-  tag: "ac74361"
+  tag: "1bfe64a"
   pullPolicy: IfNotPresent
 
 replicas: 1
